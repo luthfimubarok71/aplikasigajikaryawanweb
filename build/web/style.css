@@ -1,0 +1,415 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 23, 2025, 7:51:43 PM
+    Author     : Luthfi Mubarok
+*/
+
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #f8c471, #d35400);
+    color: #333;
+}
+
+/* Kontainer utama */
+table {
+    width: 80%;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+}
+
+/* Header */
+h1, h2, h4 {
+    color: #d35400;
+    margin: 5px 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-weight: normal;
+    font-size: 0.95em;
+}
+
+/* Menu kiri */
+#menu {
+    padding: 20px;
+}
+
+#menu b {
+    font-size: 1.1em;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #e67e22;
+}
+
+#menu a {
+    display: block;
+    background-color: #fceae0;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #d35400;
+    transition: all 0.3s ease;
+}
+
+#menu a:hover {
+    background-color: #f39c12;
+    color: white;
+}
+
+/* Top navigation menu */
+nav {
+    background-color: #e67e22;
+    padding: 10px 0;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.2);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: 0.3s ease;
+    border-radius: 6px;
+}
+
+nav ul li:hover > a {
+    background-color: #d35400;
+}
+
+/* Dropdown menu */
+nav ul li ul {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #d35400;
+    padding: 0;
+    display: none;
+    flex-direction: column;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+nav ul li:hover ul {
+    display: flex;
+}
+
+nav ul li ul li a {
+    padding: 10px 15px;
+    color: #fefefe;
+}
+
+nav ul li ul li a:hover {
+    background-color: #f1c40f;
+}
+
+/* Konten tengah */
+td[valign="top"] {
+    padding: 20px;
+}
+
+/* Footer */
+small {
+    font-size: 0.85em;
+    color: #a04000;
+    padding: 10px;
+    display: block;
+}
+
+/* Login form container */
+.login-box {
+    background: #ffffff;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Tabel login */
+.login-box table {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.login-box td {
+    padding: 10px;
+    font-size: 1em;
+    color: #2c3e50;
+}
+
+/* Input styling */
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+    font-size: 1em;
+}
+
+.login-box input[type="text"]:focus,
+.login-box input[type="password"]:focus {
+    border-color: #e67e22;
+    outline: none;
+    box-shadow: 0 0 5px #f39c12;
+}
+
+/* Button login */
+.login-box input[type="submit"] {
+    background-color: #e67e22;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-box input[type="submit"]:hover {
+    background-color: #d35400;
+}
+
+/* Error message */
+.login-box .error {
+    color: red;
+    margin-top: 15px;
+}
+
+/* Kontainer form karyawan */
+.form-box {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d35400;
+}
+
+/* Tabel form input */
+.form-box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form-box td {
+    padding: 10px;
+    font-size: 1em;
+    color: #2c3e50;
+}
+
+/* Input dan select */
+.form-box input[type="text"],
+.form-box input[type="password"],
+.form-box select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+.form-box input:focus,
+.form-box select:focus {
+    border-color: #e67e22;
+    outline: none;
+    box-shadow: 0 0 5px #f39c12;
+}
+
+/* Tombol aksi */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-group input[type="submit"] {
+    width: 100px;
+    padding: 10px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-group input[type="submit"]:hover {
+    background-color: #d35400;
+}
+
+/* Tabel hasil pencarian */
+.data-table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+.data-table th {
+    background-color: #f39c12;
+    color: white;
+    text-align: center;
+}
+
+.data-table td {
+    background-color: #fffaf0;
+}
+
+.data-table input[type="radio"] {
+    transform: scale(1.2);
+}
+
+/* Kotak form gaji */
+.form-box {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #e67e22;
+}
+
+/* Tabel form */
+.form-box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form-box td {
+    padding: 10px;
+    font-size: 1em;
+    color: #2c3e50;
+}
+
+/* Input dan readonly */
+.form-box input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.form-box input[readonly] {
+    background-color: #f9f9f9;
+    color: #7f8c8d;
+}
+
+/* Tombol */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-group input[type="submit"] {
+    width: 100px;
+    padding: 10px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-group input[type="submit"]:hover {
+    background-color: #d35400;
+}
+
+/* Divider */
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 15px 0;
+}
+
+/* Pesan error */
+.error-message {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Tombol kecil (Cari) */
+.btn-small {
+    padding: 6px 12px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+    /*margin-top: 10px;*/
+}
+
+.btn-small:hover {
+    background-color: #d35400;
+}
