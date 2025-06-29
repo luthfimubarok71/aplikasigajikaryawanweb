@@ -153,9 +153,42 @@ public class Pekerjaan {
 
         return !adaKesalahan;
     }
-
+    
     public boolean hapus(String kodePekerjaan) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean adaKesalahan = false;
+        Connection connection = koneksi.getConnection();
+        Statement sta = null;
+        String SQLStatement = "";
+        int jumlahHapus = 0;
+
+        if (connection != null) {
+            try {
+                SQLStatement = "DELETE FROM tbpekerjaan WHERE kodePekerjaan = '" + kodePekerjaan + "'";
+                sta = connection.createStatement();
+                jumlahHapus = sta.executeUpdate(SQLStatement);
+
+                if (jumlahHapus < 1) {
+                    adaKesalahan = true;
+                    pesan = "Data dengan kode pekerjaan tersebut tidak ditemukan atau sudah dihapus.";
+                }
+
+            } catch (SQLException ex) {
+                adaKesalahan = true;
+                pesan = "Terjadi kesalahan saat menghapus data pekerjaan:\n" + ex.getMessage();
+            } finally {
+                try {
+                    if (sta != null) sta.close();
+                    if (connection != null) connection.close();
+                } catch (SQLException ex) {
+                    // log optional
+                }
+            }
+        } else {
+            adaKesalahan = true;
+            pesan = "Tidak dapat melakukan koneksi ke server\n" + koneksi.getPesanKesalahan();
+        }
+
+        return !adaKesalahan;
     }
 
     public boolean baca(String kodePekerjaan) {
