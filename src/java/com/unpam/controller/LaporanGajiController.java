@@ -95,36 +95,48 @@ public class LaporanGajiController extends HttpServlet {
 
             // Membangun Konten HTML Form
             boolean opsiSelected = false;
-            String konten = "<h2>Mencetak Laporan Gaji</h2>";
+            String konten = "<div class='form-box'>";
+            konten += "<h2>Mencetak Laporan Gaji</h2>";
             konten += "<form action='LaporanGajiController' method='post'>";
             konten += "<table>";
+
             konten += "<tr>";
             konten += "<td align='right'><input type='radio' " + (opsi.equalsIgnoreCase("KTP") ? "checked" : "") + " name='opsi' value='KTP'></td>";
             konten += "<td align='left'>Berdasarkan KTP</td>";
             konten += "<td align='left'><input type='text' value='" + ktp + "' name='ktp' maxlength='15' size='15'></td>";
             konten += "</tr>";
+
             konten += "<tr>";
             konten += "<td align='right'><input type='radio' " + (opsi.equalsIgnoreCase("ruang") ? "checked" : "") + " name='opsi' value='ruang'></td>";
             konten += "<td align='left'>Berdasarkan Ruang</td>";
-            konten += "<td align='left'><select name='ruang'><option value=0>Semua</option>";
+            konten += "<td align='left'><select name='ruang'><option value='0'>Semua</option>";
             for (int i = 1; i <= 4; i++) {
                 konten += "<option value='" + i + "'" + (String.valueOf(i).equals(ruang) ? " selected" : "") + ">" + i + "</option>";
             }
             konten += "</select></td></tr>";
+
             konten += "<tr>";
             konten += "<td align='right'><input type='radio' " + (opsi.equalsIgnoreCase("Semua") ? "checked" : "") + " name='opsi' value='Semua'></td>";
             konten += "<td align='left' colspan='2'>Semua Karyawan</td>";
             konten += "</tr>";
+
             konten += "<tr><td colspan='3'><hr></td></tr>";
+
             konten += "<tr><td>Format Laporan</td>";
-            konten += "<td colspan=2><select name='formatType'>";
+            konten += "<td colspan='2'><select name='formatType'>";
             for (String[] formatLaporan : formatTypeData) {
                 konten += "<option value='" + formatLaporan[0] + "'" + (formatLaporan[0].equals(formatType) ? " selected" : "") + ">" + formatLaporan[0] + "</option>";
             }
             konten += "</select></td></tr>";
-            konten += "<tr><td colspan='3'><b>" + keterangan.replaceAll("\n", "<br>") + "</b></td></tr>";
-            konten += "<tr><td colspan='3' align='center'><input type='submit' name='tombol' class='btn' value='Cetak' style='width: 120px'></td></tr>";
-            konten += "</table></form>";
+
+            konten += "<tr><td colspan='3'><div style='color:red'><b>" + keterangan.replaceAll("\n", "<br>").replaceAll("\"", "'") + "</b></div></td></tr>";
+            konten += "</table>";
+
+            konten += "<div class='btn-group'>";
+            konten += "<input type='submit' name='tombol' value='Cetak' style='width: 120px'>";
+            konten += "</div>";
+
+            konten += "</form></div>";
 
             new MainForm().tampilkan(konten, request, response);
         } else {
